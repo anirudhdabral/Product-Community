@@ -1,0 +1,14 @@
+package com.productcommunity.service;
+
+import java.util.List;
+
+import com.productcommunity.model.Review;
+
+public interface ReviewService {
+	public List<Review> getReviews();
+	public Review saveReview(Review review);
+	public List<Review> getReview(String productCode);
+	public void deleteReview(int reviewId);
+	public Review approveReview(int reviewId);
+
+}

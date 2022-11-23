@@ -1,0 +1,6 @@
+package com.productcommunity.controller;
+
+public class AdminController {
+	@Autowired
+	private AdminService adminService;
+}

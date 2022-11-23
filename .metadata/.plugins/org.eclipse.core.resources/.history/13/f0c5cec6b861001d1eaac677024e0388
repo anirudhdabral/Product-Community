@@ -1,0 +1,6 @@
+package com.productcommunity.repo;
+
+
+public interface AdminDetailsRepo extends Crud {
+
+}

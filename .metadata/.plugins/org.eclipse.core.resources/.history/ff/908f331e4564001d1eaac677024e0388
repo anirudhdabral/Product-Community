@@ -1,0 +1,54 @@
+package com.productcommunity.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.productcommunity.model.Review;
+import com.productcommunity.repository.ReviewRepository;
+
+@Service
+public class ReviewServiceImpl implements ReviewService {
+
+	@Autowired
+	private ReviewRepository reviewRepo;
+
+	@Override
+	public List<Review> getReviews() {
+		return reviewRepo.findAll();
+	}
+
+	@Override
+	public Review saveReview(Review review) {
+
+		return reviewRepo.save(review);
+	}
+
+	@Override
+	public List<Review> getReview(String productCode) {
+		return reviewRepo.findByProductCode(productCode);
+
+	}
+
+	@Override
+	public void deleteReview(int reviewId) {
+		Review review = reviewRepo.findByReviewId(reviewId);
+		reviewRepo.delete(review);
+	}
+
+	@Override
+	public Review approveReview(int reviewId) {
+		Review review = reviewRepo.findByReviewId(reviewId);
+		double averageRating = 0.0;
+		review.setApproved(true);
+		
+		List<Review> list = reviewRepo.findByProductCode(review.getProductCode());
+		for(Review item:list) {
+			averageRating += item.getReviewRating();
+		}
+		review = reviewRepo.save(review);
+		return review;
+	}
+
+}

@@ -1,0 +1,32 @@
+package com.productcommunity.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.productcommunity.model.Admin;
+import com.productcommunity.util.AdminUtil;
+
+
+@RestController
+public class AdminDetailsDao {
+	
+	@GetMapping()
+	public List<Admin> getAllAdmin("getAllAdmins"){
+		List<Admin> listOfAdmin = null;
+		try (Session session = AdminUtil.getSessionFactory().openSession()) {
+			String query = "from Admin";
+			Query q = session.createQuery(query);
+			listOfAdmin = q.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listOfAdmin;
+	}
+	
+	
+
+}

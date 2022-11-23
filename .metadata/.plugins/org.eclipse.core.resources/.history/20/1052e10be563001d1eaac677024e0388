@@ -1,0 +1,92 @@
+package com.productcommunity.model;
+
+import java.sql.Blob;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+
+@Entity
+public class Product {
+
+	@Id
+	@Column(length = 5)
+	private String productCode;
+
+	@Column(length = 30)
+	private String productName;
+
+	@Lob
+	private Blob image;
+
+	private double productPrice;
+
+	@Column(length = 400)
+	private String productDescription;
+
+	public Product() {
+		super();
+	}
+
+	public Product(String productCode, String productName, Blob image, double productPrice,
+			Date productLaunchDate, String productDescription) {
+		super();
+		this.productCode = productCode;
+		this.productName = productName;
+		this.image = image;
+		this.productPrice = productPrice;
+		this.productLaunchDate = productLaunchDate;
+		this.productDescription = productDescription;
+	}
+
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public Blob getImage() {
+		return image;
+	}
+
+	public void setImage(Blob image) {
+		this.image = image;
+	}
+
+	public double getProductPrice() {
+		return productPrice;
+	}
+
+	public void setProductPrice(double productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	public Date getProductLaunchDate() {
+		return productLaunchDate;
+	}
+
+	public void setProductLaunchDate(Date productLaunchDate) {
+		this.productLaunchDate = productLaunchDate;
+	}
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.productcommunity.database;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+
+public class UserDetails {
+	@Id
+	@Column(length = 30)
+	private String userEmail;
+	private String password;
+	
+
+}

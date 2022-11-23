@@ -1,0 +1,8 @@
+package com.demo;
+
+public class Greetings {
+	private  long id;
+	private String content;
+	
+	
+}

@@ -1,0 +1,6 @@
+package com.productcommunity.repo;
+import org.springframework.
+
+public interface AdminDetailsRepo extends Crud {
+
+}

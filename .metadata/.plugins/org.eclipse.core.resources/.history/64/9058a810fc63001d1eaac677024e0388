@@ -1,0 +1,14 @@
+package com.productcommunity.service;
+
+import java.util.List;
+
+import com.productcommunity.model.Review;
+
+public class ReviewServiceImpl implements ReviewService {
+	
+	@Override
+	public List<Review> getReviews(){
+		
+	}
+
+}

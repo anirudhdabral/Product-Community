@@ -1,0 +1,5 @@
+package com.productcommunity.dao;
+
+public class ReviewDetailsDao {
+
+}

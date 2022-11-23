@@ -1,0 +1,12 @@
+package com.productcommunity.database;
+
+import javax.persistence.Id;
+
+public class AdminDetails {
+	@Id
+	private int adminId;
+	
+	
+	private String password;
+
+}

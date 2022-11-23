@@ -1,0 +1,32 @@
+package com.productcommunity.service;
+
+import java.util.List;
+import java.util.Objects;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.productcommunity.model.Review;
+import com.productcommunity.model.User;
+import com.productcommunity.repository.ReviewRepository;
+
+@Service
+public class ReviewServiceImpl implements ReviewService {
+	
+	@Autowired
+	private ReviewRepository reviewRepo;
+	
+	@Override
+	public List<Review> getReviews(){
+		return reviewRepo.findAll();
+	}
+	
+	@Override
+	public Review saveReview(Review user) {
+		User user1 = userRepo.findByUserEmail(user.getUserEmail());
+		if (Objects.isNull(user1))
+			return userRepo.save(user);
+		return null;
+	}
+
+}

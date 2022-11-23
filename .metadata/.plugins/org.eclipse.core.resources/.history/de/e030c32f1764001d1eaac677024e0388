@@ -1,0 +1,49 @@
+package com.productcommunity.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.productcommunity.model.Product;
+import com.productcommunity.model.Review;
+import com.productcommunity.model.User;
+import com.productcommunity.service.ReviewService;
+
+@RestController
+@RequestMapping("/review")
+@CrossOrigin
+public class ReviewController {
+	
+	@Autowired
+	private ReviewService reviewService;
+	
+	@GetMapping("/getReviews")
+	public List<Review> getProducts() {
+		return reviewService.getReviews();
+	}
+	
+	@GetMapping("/{productCode}")
+	public List<Review> getReview(@PathVariable String productCode) {
+		System.out.println(reviewService.getReview(productCode));
+		return reviewService.getReview(productCode);
+	}
+	
+	@PostMapping("/addReview")
+	public Review saveUser(@RequestBody Review review) {
+		return reviewService.saveReview(review);
+	}
+	
+	@DeleteMapping("/delete/{reviewId}")
+	public void deleteReview(@PathVariable int reviewId) {
+		reviewService.delete()
+	}
+
+}

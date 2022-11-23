@@ -1,0 +1,5 @@
+package com.productcommunity.database;
+
+public class ProductDetails {
+
+}

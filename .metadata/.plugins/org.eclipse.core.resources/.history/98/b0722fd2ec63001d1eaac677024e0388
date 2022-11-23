@@ -1,0 +1,15 @@
+package com.productcommunity.service;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.productcommunity.model.Product;
+import com.productcommunity.model.User;
+
+public interface ProductService {
+	public List<Product> getProducts();
+	public Product saveProduct(Product product);
+	public Product getProduct(@PathVariable String productID)
+
+}

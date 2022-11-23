@@ -1,0 +1,20 @@
+package com.productcommunity.database;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+
+public class AdminDetails {
+	@Id
+	@Column(length = 5)
+	private int adminId;
+	
+	@Column(length = 30)
+	private String password;
+
+	public AdminDetails(int adminId, String password) {
+		super();
+		this.adminId = adminId;
+		this.password = password;
+	}
+
+}

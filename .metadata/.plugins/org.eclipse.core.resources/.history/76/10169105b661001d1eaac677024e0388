@@ -1,0 +1,11 @@
+package com.productcommunity.service;
+
+import com.productcommunity.model.AdminDetails;
+
+public interface AdminService {
+	
+	public AdminDetails adminLogin(String email, String password);
+	public String adminLogout(int adminId);
+	public Admin adminRegister(Admin admin);
+
+}

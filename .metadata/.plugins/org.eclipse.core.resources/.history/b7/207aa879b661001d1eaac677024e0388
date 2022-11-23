@@ -1,0 +1,14 @@
+package com.productcommunity.service;
+
+import com.productcommunity.model.AdminDetails;
+
+public class AdminServiceImpl implements AdminService {
+	
+	public AdminDetails adminLogin(int adminId, String password) {
+		
+	}
+	public String adminLogout(int adminId) {
+		return "cds";
+	}
+	
+}

@@ -1,0 +1,16 @@
+package com.productcommunity.database;
+
+public class ReviewDetails {
+	
+	private int reviewId;
+	private String reviewTitle;
+	private String productCode;
+	private int reviewRating;
+	private String reviewDescription;
+	public ReviewDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}

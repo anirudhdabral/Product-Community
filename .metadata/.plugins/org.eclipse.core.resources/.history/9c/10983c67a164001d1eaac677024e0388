@@ -1,0 +1,7 @@
+package com.productcommunity.model;
+
+public class Stats {
+	private int noOfProducts;
+	private int noOfProducts;
+
+}

@@ -1,0 +1,10 @@
+package com.productcommunity.database;
+
+public class ReviewDetails {
+	
+	private int reviewId;
+	private String title;
+	private String productCode;
+	
+
+}

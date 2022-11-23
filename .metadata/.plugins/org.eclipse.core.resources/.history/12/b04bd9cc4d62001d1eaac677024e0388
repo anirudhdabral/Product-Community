@@ -1,0 +1,16 @@
+package com.productcommunity.dao;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.productcommunity.model.AdminDetails;
+
+@RestController
+public class AdminDetailsDao {
+	
+	public List<AdminDetails> 
+	
+	
+
+}

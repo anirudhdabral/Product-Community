@@ -1,0 +1,23 @@
+package com.productcommunity.database;
+
+import java.sql.Blob;
+import java.util.Date;
+
+import javax.persistence.Lob;
+
+public class ProductDetails {
+	
+	private String productCode;
+	
+	private String productName;
+	
+	@Lob
+	private Blob image;
+	
+	private double productPrice;
+	
+	private Date productLaunchDate;
+	
+	private String productDescription;
+
+}

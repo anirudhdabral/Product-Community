@@ -1,0 +1,29 @@
+package com.productcommunity.application;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.productcommunity.util.AdminUtil;
+
+@SpringBootApplication
+public class ProductCommunitySpringApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ProductCommunitySpringApplication.class, args);
+		System.out.println("helloworld");
+		Transaction transaction = null;
+		try (Session session = AdminUtil.getSessionFactory().openSession()) {
+			transaction = session.beginTransaction();
+			session.saveOrUpdate(author);
+			transaction.commit();
+			session.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

@@ -1,0 +1,11 @@
+package com.productcommunity.database;
+
+public class ProductDetails {
+	
+	private String productCode;
+	
+	private String productName;
+	
+	
+
+}

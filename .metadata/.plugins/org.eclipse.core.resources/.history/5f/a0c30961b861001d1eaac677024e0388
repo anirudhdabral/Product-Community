@@ -1,0 +1,10 @@
+package com.productcommunity.service;
+
+import com.productcommunity.model.AdminDetails;
+
+public interface AdminService {
+	
+	public AdminDetails adminLogin(int adminId, String password);
+	public String adminLogout(int adminId);
+
+}

@@ -1,0 +1,108 @@
+package com.productcommunity.model;
+
+
+
+import java.sql.Blob;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+
+@Entity
+public class Product {
+
+	@Id
+	@Column(length = 5)
+	private String productCode;
+
+	@Column(length = 30)
+	private String productName;
+	
+	@Column(length = 30)
+	private String productBrand;
+	
+	private byte[] image;
+
+	private double productPrice;
+
+	@Column(length = 400)
+	private String productDescription;
+	
+	private double rating;
+
+	public Product() {
+		super();
+	}
+	
+
+	public Product(String productCode, String productName, String productBrand, byte[] image, double productPrice,
+			String productDescription, double rating) {
+		super();
+		this.productCode = productCode;
+		this.productName = productName;
+		this.productBrand = productBrand;
+		this.image = image;
+		this.productPrice = productPrice;
+		this.productDescription = productDescription;
+		this.rating = rating;
+	}
+	
+
+	public Blob getImage() {
+		return image;
+	}
+
+	public void setImage(Blob image) {
+		this.image = image;
+	}
+
+	public String getProductBrand() {
+		return productBrand;
+	}
+	public void setProductBrand(String productBrand) {
+		this.productBrand = productBrand;
+	}
+
+	public double getRating() {
+		return rating;
+	}
+
+	public void setRating(double rating) {
+		this.rating = rating;
+	}
+
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+	
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public double getProductPrice() {
+		return productPrice;
+	}
+
+	public void setProductPrice(double productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
+}

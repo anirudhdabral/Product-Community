@@ -1,0 +1,10 @@
+package com.productcommunity.dao;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class AdminDetailsDao {
+	
+	
+
+}

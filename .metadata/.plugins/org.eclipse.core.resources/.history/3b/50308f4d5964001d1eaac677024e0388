@@ -1,0 +1,51 @@
+package com.productcommunity.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.productcommunity.model.Product;
+import com.productcommunity.repository.ProductRepository;
+
+@Service
+public class ProductServiceImpl implements ProductService {
+	@Autowired
+	private ProductRepository productRepo;
+	
+	@Override
+	public List<Product> getProducts(){
+		return productRepo.findAll();
+	}
+	
+	@Override
+	public Product saveProduct(Product product) {
+		return productRepo.save(product);
+	}
+	
+	@Override
+	public Product getProduct(String productID) {
+		Product product = productRepo.findByProductCode(productID);
+		System.out.println(product);
+		if (Objects.isNull(product)) {
+			return null;
+		}
+		return product;
+	}
+	
+	@Override
+	public List<Product> searchProducts(String query){
+		List<Product> list = productRepo.findAll();
+		List<Product> searchResults = new ArrayList<Product>();
+		for(Product item: list) {
+			if(item.getProductBrand().equals(query)||
+					item.getProductCode()) {
+				
+			}
+		}
+		return searchResults;
+		
+	}
+}

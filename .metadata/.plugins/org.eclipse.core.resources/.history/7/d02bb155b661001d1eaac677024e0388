@@ -1,0 +1,35 @@
+package com.productcommunity.service;
+
+public class AdminServiceImpl {
+	@Override
+	/*@Author:Saiteja Velamala
+	 * Modified Date: 28-08-2022
+	  */
+	public Admin adminLogin(String email, String password)
+	{
+		Admin admin = adminRepository.findByEmail(email);
+		if (Objects.isNull(admin))
+			throw new AnswerNotFound();
+
+		if (admin.getPassword().equals(password))
+		{
+			admin.setIsActive(true);
+			adminRepository.save(admin);
+		}
+		else
+			throw new AnswerNotFound();
+		return admin;
+	}
+
+	@Override
+	/*@Author:Saumya Raj
+	 * Modified Date: 28-08-2022
+	  */
+	public String adminLogout(Long adminId)
+	{
+		Admin admin = adminRepository.findById(adminId).orElseThrow(() -> new AnswerNotFound("Admin not found"));
+		admin.setIsActive(false);
+		adminRepository.save(admin);
+		return "Logged Out";
+	}
+}

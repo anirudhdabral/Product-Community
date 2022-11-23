@@ -1,0 +1,37 @@
+package com.productcommunity.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.productcommunity.model.Admin;
+import com.productcommunity.repository.AdminRepository;
+
+@Service
+public class AdminServiceImpl implements AdminService {
+	@Autowired
+	private AdminRepository adminRepo;
+	
+	@Override
+	public List<Admin> getAllAdmin()
+	{
+		return adminRepo.findAll();
+	}
+	
+	public Admin adminLogin(int email, String password)
+	{
+		Admin admin = adminRepo.findByEmail(email);
+		if (Objects.isNull(admin))
+			throw new AnswerNotFound();
+
+		if (admin.getPassword().equals(password))
+		{
+			admin.setIsActive(true);
+			adminRepository.save(admin);
+		}
+		else
+			throw new AnswerNotFound();
+		return admin;
+	}
+}

@@ -1,0 +1,8 @@
+package com.productcommunity.database;
+
+public class UserDetails {
+	private String userEmail;
+	private String password;
+	
+
+}

@@ -1,0 +1,65 @@
+package com.productcommunity.database;
+
+public class ReviewDetails {
+
+	private int reviewId;
+	private String reviewTitle;
+	private String productCode;
+	private int reviewRating;
+	private String reviewDescription;
+
+	public ReviewDetails() {
+		super();
+	}
+
+	public ReviewDetails(int reviewId, String reviewTitle, String productCode, int reviewRating,
+			String reviewDescription) {
+		super();
+		this.reviewId = reviewId;
+		this.reviewTitle = reviewTitle;
+		this.productCode = productCode;
+		this.reviewRating = reviewRating;
+		this.reviewDescription = reviewDescription;
+	}
+
+	public int getReviewId() {
+		return reviewId;
+	}
+
+	public void setReviewId(int reviewId) {
+		this.reviewId = reviewId;
+	}
+
+	public String getReviewTitle() {
+		return reviewTitle;
+	}
+
+	public void setReviewTitle(String reviewTitle) {
+		this.reviewTitle = reviewTitle;
+	}
+
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
+	public int getReviewRating() {
+		return reviewRating;
+	}
+
+	public void setReviewRating(int reviewRating) {
+		this.reviewRating = reviewRating;
+	}
+
+	public String getReviewDescription() {
+		return reviewDescription;
+	}
+
+	public void setReviewDescription(String reviewDescription) {
+		this.reviewDescription = reviewDescription;
+	}
+
+}

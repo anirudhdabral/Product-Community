@@ -1,0 +1,9 @@
+package com.productcommunity.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.productcommunity.model.Review;
+
+public interface ReviewRepository extends JpaRepository<Review, Integer>{
+
+}

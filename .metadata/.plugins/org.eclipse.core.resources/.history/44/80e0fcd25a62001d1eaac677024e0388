@@ -1,0 +1,10 @@
+package com.productcommunity.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.productcommunity.service.AdminService;
+
+public class AdminController {
+	@Autowired
+	private AdminService adminService;
+}

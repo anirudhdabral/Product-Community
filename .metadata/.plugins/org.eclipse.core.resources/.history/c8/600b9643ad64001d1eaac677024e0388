@@ -1,0 +1,18 @@
+package com.productcommunity.service;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.springframework.http.ResponseEntity.BodyBuilder;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.productcommunity.model.Product;
+
+public interface ProductService {
+	public List<Product> getProducts();
+	public Product saveProduct(Product product);
+	public Product getProduct(String productID);
+	public List<Product> searchProducts(String type,String query);
+	public BodyBuilder uploadImage(MultipartFile file) throws IOException;
+
+}

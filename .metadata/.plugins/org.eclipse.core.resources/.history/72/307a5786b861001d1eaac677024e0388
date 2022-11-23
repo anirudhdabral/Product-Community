@@ -1,0 +1,5 @@
+package com.productcommunity.repo;
+
+public class AdminDetailsRepo {
+
+}

@@ -1,0 +1,101 @@
+package com.productcommunity.service;
+
+import java.io.ByteArrayOutputStream;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.zip.Deflater;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.productcommunity.model.Product;
+import com.productcommunity.repository.ProductRepository;
+import com.productcommunity.CompressorDecompressor;
+
+@Service
+public class ProductServiceImpl implements ProductService {
+	@Autowired
+	private ProductRepository productRepo;
+
+	@Override
+	public List<Product> getProducts() {
+		return productRepo.findAll();
+	}
+
+	@Override
+	public Product saveProduct(Product product) {
+		return productRepo.save(product);
+	}
+
+	@Override
+	public Product getProduct(String productID) {
+		Product product = productRepo.findByProductCode(productID);
+		System.out.println(product);
+		if (Objects.isNull(product)) {
+			return null;
+		}
+		return product;
+	}
+	
+	@Override
+	public BodyBuilder uploadImage(String productCode,MultipartFile file) throws IOException{
+		Product product = productRepo.findByProductCode(productCode);
+		product.setImage(CompressorDecompressor.compressBytes(file.getBytes()));
+		product = productRepo.save(product);
+		return ResponseEntity.status(HttpStatus.OK);
+	}
+	
+	@Override
+	public Product getImage(String productCode) {
+		Product product = productRepo.findByProductCode(productCode);
+		if(product.isPresent())
+		{
+			ImageModel img = new ImageModel(retrievedImage.get().getName(), retrievedImage.get().getType(), decompressBytes(retrievedImage.get().getPicByte()));
+			return img;
+		}
+		return null;
+	}
+
+	@Override
+	public List<Product> searchProducts(String type,String query){
+		List<Product> list = productRepo.findAll();
+		List<Product> searchResults = new ArrayList<Product>();
+		query=query.toLowerCase();
+		for(Product item: list) {
+			if(type.equals("brand")) {
+				if(item.getProductBrand().toLowerCase().contains(query)){
+					searchResults.add(item);
+				}
+				
+			}
+			else if(type.equals("name")) {
+				if(item.getProductName().toLowerCase().contains(query)) {
+					searchResults.add(item);
+				}
+				
+			}
+			else if(type.equals("code")) {
+				if(item.getProductCode().toLowerCase().contains(query)) {
+					searchResults.add(item);
+				}
+			}
+			else {
+				if(
+						item.getProductBrand().toLowerCase().contains(query)||
+						item.getProductCode().toLowerCase().contains(query)||
+						item.getProductName().toLowerCase().contains(query)) {
+					searchResults.add(item);
+				}
+			}
+		}
+		return searchResults;
+	}
+	
+}

@@ -1,0 +1,18 @@
+package com.productcommunity.application;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class AdminController {
+	
+	@GetMapping("/getAllAdmin")
+	public String getAllAdmin() {
+//		System.out.println(adminService.findAll());
+//		System.out.println("bhgfx");
+//		return adminService.findAll();
+		return "";
+	}
+}

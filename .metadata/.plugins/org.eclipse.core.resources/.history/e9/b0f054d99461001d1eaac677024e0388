@@ -1,0 +1,15 @@
+package com.productcommunity.database;
+
+import java.sql.Blob;
+
+public class ProductDetails {
+	
+	private String productCode;
+	
+	private String productName;
+	
+	private Blob image;
+	
+	private
+
+}

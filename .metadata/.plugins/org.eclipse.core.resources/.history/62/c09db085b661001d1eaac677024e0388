@@ -1,0 +1,27 @@
+package com.productcommunity.service;
+
+import com.productcommunity.model.AdminDetails;
+
+public class AdminServiceImpl implements AdminService {
+	
+	public AdminDetails adminLogin(int adminId, String password) {
+		
+		AdminDetails admin = adminRepository.findByEmail(email);
+		if (Objects.isNull(admin))
+			throw new AnswerNotFound();
+
+		if (admin.getPassword().equals(password))
+		{
+			admin.setIsActive(true);
+			adminRepository.save(admin);
+		}
+		else
+			throw new AnswerNotFound();
+		return admin;
+		
+	}
+	public String adminLogout(int adminId) {
+		return "cds";
+	}
+	
+}

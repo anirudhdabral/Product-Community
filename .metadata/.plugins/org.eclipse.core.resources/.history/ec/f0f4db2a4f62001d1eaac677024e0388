@@ -1,0 +1,16 @@
+package com.productcommunity.application;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import com.productcommunity.util.AdminUtil;
+
+public class xyz {
+	try (Session session = AdminUtil.getSessionFactory().openSession()) {
+		String query = "from Admin";
+		Query q = session.createQuery(query);
+		listOfAdmin = q.list();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+}

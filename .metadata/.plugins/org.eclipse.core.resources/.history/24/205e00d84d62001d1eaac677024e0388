@@ -1,0 +1,31 @@
+package com.productcommunity.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.productcommunity.model.AdminDetails;
+import com.web.util.BookDetailsUtil;
+
+import database.BookDetails;
+
+@RestController
+public class AdminDetailsDao {
+	
+	public List<AdminDetails> getAllAdmin(){
+		List<BookDetails> listOfBook = null;
+		try (Session session = BookDetailsUtil.getSessionFactory().openSession()) {
+			String query = "from BookDetails order by bookcode";
+			Query q = session.createQuery(query);
+			listOfBook = q.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listOfBook;
+	}
+	
+	
+
+}

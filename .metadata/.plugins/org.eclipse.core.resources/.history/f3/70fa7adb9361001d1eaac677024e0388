@@ -1,0 +1,77 @@
+package com.productcommunity.database;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+
+public class ReviewDetails {
+	@Id
+	@Column(length = 5)
+	private int reviewId;
+	
+	@Column(length = 30)
+	private String reviewTitle;
+	
+	@Column(length = 30)
+	private String productCode;
+	
+	@Column(length = 1)
+	private int reviewRating;
+	
+	@Column(length = )
+	private String reviewDescription;
+
+	public ReviewDetails() {
+		super();
+	}
+
+	public ReviewDetails(int reviewId, String reviewTitle, String productCode, int reviewRating,
+			String reviewDescription) {
+		super();
+		this.reviewId = reviewId;
+		this.reviewTitle = reviewTitle;
+		this.productCode = productCode;
+		this.reviewRating = reviewRating;
+		this.reviewDescription = reviewDescription;
+	}
+
+	public int getReviewId() {
+		return reviewId;
+	}
+
+	public void setReviewId(int reviewId) {
+		this.reviewId = reviewId;
+	}
+
+	public String getReviewTitle() {
+		return reviewTitle;
+	}
+
+	public void setReviewTitle(String reviewTitle) {
+		this.reviewTitle = reviewTitle;
+	}
+
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
+	public int getReviewRating() {
+		return reviewRating;
+	}
+
+	public void setReviewRating(int reviewRating) {
+		this.reviewRating = reviewRating;
+	}
+
+	public String getReviewDescription() {
+		return reviewDescription;
+	}
+
+	public void setReviewDescription(String reviewDescription) {
+		this.reviewDescription = reviewDescription;
+	}
+
+}

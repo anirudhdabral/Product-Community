@@ -1,0 +1,38 @@
+package com.productcommunity.service;
+
+import java.util.List;
+import java.util.Objects;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.productcommunity.model.User;
+import com.productcommunity.repository.UserRepository;
+
+@Service
+public class UserServiceImpl implements UserService {
+	@Autowired
+	private UserRepository userRepo;
+	
+	@Override
+	public List<User> getUsers() {
+		return userRepo.findAll();
+	}
+	
+	@Override
+	public User userLogin(String adminId, String password) {
+		User user = userRepo.findByUserEmail(adminId);
+		if (Objects.isNull(user)) {
+			return null;
+		}
+		if (user.getPassword().equals(password)) {
+			return user;
+
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public User saveUser(User user)
+
+}

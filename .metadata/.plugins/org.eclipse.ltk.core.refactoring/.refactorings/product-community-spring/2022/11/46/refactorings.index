@@ -1,0 +1,20 @@
+1668150869388	Rename type 'Review'
+1668151054565	Rename package 'com.productcommunity'
+1668165291236	Rename package 'com.productcommunity.database'
+1668167217198	Delete element
+1668167311219	Delete element
+1668168004837	Delete element
+1668168008592	Delete element
+1668232029590	Rename package 'com.productcommunity.repo'
+1668232041098	Rename compilation unit 'AdminDetailsRepo.java'
+1668232235996	Rename type 'AdminDetails'
+1668232251451	Rename type 'ProductDetails'
+1668232258769	Rename type 'ReviewDetails'
+1668232272117	Rename type 'UserDetails'
+1668232296590	Rename type 'AdminDetailsUtil'
+1668232316784	Rename type 'ProductDetailsUtil'
+1668232326737	Rename type 'ReviewDetailsUtil'
+1668232336965	Rename type 'UserDetailsUtil'
+1668232774348	Delete element
+1668233095692	Rename type 'AdminDetailsDao'
+1668236532732	Move package

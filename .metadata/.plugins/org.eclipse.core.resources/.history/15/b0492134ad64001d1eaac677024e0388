@@ -1,0 +1,14 @@
+package com.productcommunity.service;
+
+import java.util.List;
+
+import com.productcommunity.model.Product;
+
+public interface ProductService {
+	public List<Product> getProducts();
+	public Product saveProduct(Product product);
+	public Product getProduct(String productID);
+	public List<Product> searchProducts(String type,String query);
+	public BodyBuilder uplaodImage(MultipartFile file) throws IOException;
+
+}

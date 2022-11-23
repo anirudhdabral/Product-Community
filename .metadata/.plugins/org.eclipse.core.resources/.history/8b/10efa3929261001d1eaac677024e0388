@@ -1,0 +1,8 @@
+package com.productcommunity.database;
+
+public class AdminDetails {
+	
+	private int adminId;
+	private string password;
+
+}
