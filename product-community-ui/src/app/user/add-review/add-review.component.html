@@ -1,0 +1,71 @@
+<div class="component mt-3">
+    <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-xl-3">
+                <div class="card blueberry" style="width: 16rem;">
+                    <div align="center">
+                        <img src={{image}} class="card-img-top" alt="Not Found"
+                            onerror="this.src='https://www.worldanvil.com/uploads/images/0ae34d64f5299aa8dd6d77e28a51680d.png';">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-truncate">{{productName}}</h5>
+                        <div class="card-text">
+                            <span class="h6">{{productBrand}}</span><br>
+                            <small>Code: <span class="product-code">{{productCode}}</span></small><br>
+                            <small>Price: ₹ {{productPrice}}/-</small><br>
+                            <small>Rating: {{rating}}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-star" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                </svg>
+                            </small>
+                        </div>
+                        <button type="button" hidden class="btn btn-primary mt-3 stretched-link">more details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-1 col-xl-9">
+                <h3>Add review</h3>
+                <div class="row mb-3">
+                    <div class="col-lg-2 col-sm-2 col-3">
+                        <div class="form-floating">
+                            <select class="form-select" id="floatingSelectGrid" formControlName="rating">
+                                <option selected value="5">5 ⭐</option>
+                                <option value="4">4 ⭐</option>
+                                <option value="3">3 ⭐</option>
+                                <option value="2">2 ⭐</option>
+                                <option value="1">1 ⭐</option>
+                            </select>
+                            <label for="floatingSelectGrid">Rating</label>
+                            <div class="text-danger" *ngIf="validRating?.invalid && validRating?.touched">
+                                <small>Select a rating</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col review-title">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInputGrid" placeholder="Title"
+                                formControlName="title">
+                            <label for="floatingInputGrid">Title</label>
+                            <div class="text-danger" *ngIf="validTitle?.invalid && validTitle?.touched">
+                                <small>Please enter a title</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-floating col">
+                    <textarea class="form-control comments" placeholder="Leave a comment here"
+                        formControlName="comments"></textarea>
+                    <label for="floatingTextarea2">Comments</label>
+                </div>
+                <div class="text-danger" *ngIf="validComments?.invalid && validComments?.touched">
+                    <small>Requires min. 20 characters and max. 400 characters</small>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3" align="center">
+            <button type="submit" class="btn btn-warning btn-lg " [disabled]="reviewForm.invalid">Submit</button>
+        </div>
+    </form>
+</div>

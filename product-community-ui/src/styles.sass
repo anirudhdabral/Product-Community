@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+body
+  background: #F0F2F5
+
+.card
+  border: none
+  box-shadow: 5px 5px 10px #9b9b9bbc
+
+.component
+  animation: fadeIn .5s
+
+.bi
+  padding-bottom: 3px
+
+.alert
+  padding: 5px
+  animation: fadeIn .5s
+
+@keyframes fadeIn
+  0%
+    opacity: 0.7
+
+  100%
+    opacity: 1
+
+@keyframes fadeInOut
+  0%
+    opacity: 0
+
+  10%
+    opacity: 1
+
+  90%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+::-webkit-scrollbar
+  width: 9px
+  border-radius: 10px
+
+::-webkit-scrollbar-thumb
+  border-radius: 10px
+  background-color: rgb(62, 62, 62)
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+  -webkit-appearance: none
+  margin: 0
+
+/* Firefox */
+input[type=number]
+  -moz-appearance: textfield

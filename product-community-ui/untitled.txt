@@ -1,0 +1,26 @@
+products{
+    product code-
+    name-
+    image
+    price
+    launch date-
+    description
+}add getall getone
+
+review{
+    review id
+    product code
+    rating
+    review title
+    details
+    approved? false
+}add getall
+
+user{
+    email id
+    password
+}getone
+
+admin{
+
+}

@@ -1,0 +1,56 @@
+<div class="component">
+  <div class="form-center">
+    <h2>Add new product</h2>
+    <div *ngIf="isPresent" class="alert alert-danger" role="alert">
+      <strong>Error!</strong><span> Product with this code already exist.</span>
+    </div>
+    <form class="row g-3 mt-1" [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+      <div class="form-floating col-md-2">
+        <input type="text" class="form-control code" id="inputZip" placeholder="Code" formControlName="code">
+        <label for="inputZip" class="form-label">Code </label>
+        <div class="text-danger" *ngIf="validCode?.invalid && validCode?.touched">
+          <small>Code is required</small>
+        </div>
+      </div>
+      <div class="form-floating col-md-3">
+        <input type="text" class="form-control" id="inputZip" placeholder="Brand name" formControlName="brand">
+        <label class="form-label">Brand name</label>
+        <div class="text-danger" *ngIf="validBrand?.invalid && validBrand?.touched">
+          <small>Brand name is required</small>
+        </div>
+      </div>
+      <div class="form-floating   col-md-7">
+        <input type="text" class="form-control" id="inputCity" placeholder="Product name" formControlName="name">
+        <label class="form-label">Product name</label>
+        <div class="text-danger" *ngIf="validName?.invalid && validName?.touched">
+          <small>Product name is required</small>
+        </div>
+      </div>
+      <div class="form-floating col-md-5">
+        <input type="number" class="form-control" id="inputCity" placeholder="Price" formControlName="price">
+        <label class="form-label">Price</label>
+        <div class="text-danger" *ngIf="validPrice?.invalid && validPrice?.touched">
+          <small>Price cannot be negative or left blank</small>
+        </div>
+      </div>
+      <div class="form-floating col-md-7">
+        <input type="text" class="form-control" id="inputCity" placeholder="Image URL" formControlName="image">
+        <label class="form-label">Image URL</label>
+        <div class="text-danger" *ngIf="validImage?.invalid && validImage?.touched">
+          <small>Image URL is required</small>
+        </div>
+      </div>
+      <div class="form-floating">
+        <textarea class="form-control comments" placeholder="Description" formControlName="description"></textarea>
+        <label for="floatingTextarea2">Description</label>
+        <div class="text-danger" *ngIf="validDescription?.invalid && validDescription?.touched">
+          <small>Requires min. 20 characters and max. 400 characters</small>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary" [disabled]="addProductForm.invalid">Submit</button>
+        <button type="button" class="btn btn-danger btn-cancel">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+<div class="card div-center text-bg-dark component" *ngIf="showLogin">
+    <div class="card-body content">
+        <h3 class="card-title">Login</h3>
+        <div *ngIf="userAuthError" class="alert alert-danger" role="alert">
+            <strong>Invalid username or password!</strong><span> Try again.</span>
+        </div>
+        <form class="mt-3" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" name="emailId" formControlName="emailId" placeholder="Email">
+                <label class="text-dark">Email</label>
+                <div class="text-warning" *ngIf="emailId?.invalid && emailId?.touched">
+                    <small>Please enter a valid Email ID</small>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" name="password" formControlName="password"
+                    placeholder="Password">
+                <label class="text-dark">Password</label>
+                <div class="text-warning" *ngIf="password?.invalid && password?.touched">
+                    <small>Please enter a valid password</small>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-light" [disabled]="loginForm.invalid">Login</button><br>
+            <small>Don't have an account?<button type="button" class="btn-link"
+                    (click)="switchToSignup()">Signup</button>
+            </small>
+        </form>
+    </div>
+</div>
+
+
+<div class="card div-center text-bg-dark component" *ngIf="!showLogin">
+    <div class="card-body content">
+        <h3 class="card-title">Signup</h3>
+        <div *ngIf="isPresent" class="alert alert-danger" role="alert">
+            <strong>Email Id already present!</strong><span> Try again.</span>
+        </div>
+        <form class="mt-3" [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="signupEmailId" formControlName="signupEmailId"
+                    placeholder="Email ID">
+                <label class="text-dark">Email ID</label>
+                <div class="text-warning" *ngIf="signupEmailId?.invalid && signupEmailId?.touched">
+                    <small>Please enter a valid Email ID</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="firstName" formControlName="firstName"
+                            placeholder="First name">
+                        <label class="text-dark">First name</label>
+                        <div class="text-warning" *ngIf="firstName?.invalid && firstName?.touched">
+                            <small>Please enter first name</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="lastName" formControlName="lastName"
+                            placeholder="Last name">
+                        <label class="text-dark">Last name</label>
+                        <div class="text-warning" *ngIf="lastName?.invalid && lastName?.touched">
+                            <small>Please enter last name</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" name="signupPassword"
+                            formControlName="signupPassword" placeholder="Password">
+                        <label class="text-dark">Password</label>
+                        <div class="text-warning" *ngIf="signupPassword?.invalid && signupPassword?.touched">
+                            <small>Please enter a valid password</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" (keyup)="checkPass()" name="confirmPassword"
+                            formControlName="confirmPassword" placeholder="Confirm password">
+                        <label class="text-dark">Confirm password</label>
+                        <div class="text-warning"
+                            *ngIf="!passMatch || (confirmPassword?.invalid && confirmPassword?.touched)">
+                            <small>Password does not match</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-light" [disabled]="signupForm.invalid">Register</button><br>
+            <small>
+                <span>Already registered?</span>
+                <button type="button" class="btn-link" (click)="switchToLogin()">Login now</button>
+            </small>
+        </form>
+    </div>
+</div>
